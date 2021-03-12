@@ -1,20 +1,28 @@
 package com.springMongo.springmongodemo;
 
+import org.springframework.data.annotation.Id;
+
+
 public class Customer {
 
-	private final long id;
-	private final String content;
+  @Id
+  public String id;
 
-	public Customer(long id, String content) {
-		this.id = id;
-		this.content = content;
-	}
+  public String firstName;
+  public String lastName;
 
-	public long getId() {
-		return id;
-	}
+  public Customer() {}
 
-	public String getContent() {
-		return content;
-	}
+  public Customer(String firstName, String lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  @Override
+  public String toString() {
+    return String.format(
+        "Customer[id=%s, firstName='%s', lastName='%s']",
+        id, firstName, lastName);
+  }
+
 }
